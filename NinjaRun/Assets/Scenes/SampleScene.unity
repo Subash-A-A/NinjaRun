@@ -173,7 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneGap: 3
   moveSpeed: 10
-  JumpForce: 50
+  laneSwitchSmooth: 10
+  JumpForce: 60
   GroundCheck: {fileID: 1187049789}
   whatIsGround:
     serializedVersion: 2
@@ -181,6 +182,7 @@ MonoBehaviour:
   JumpKey: 32
   Left: 97
   Right: 100
+  SlideKey: 304
 --- !u!54 &287478411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -380,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.75, z: -4}
+  m_LocalPosition: {x: 0, y: 2.25, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -492,7 +494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131758983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.75, z: -4}
+  m_LocalPosition: {x: 0, y: 2.25, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 287478409}
@@ -682,7 +684,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floors:
   - {fileID: 2916895785917208375, guid: 4794f93e841a15647a5695837a1a57c3, type: 3}
-  - {fileID: 8736067242185519795, guid: 09822bb1cd349a94bbd1d2d2ad909998, type: 3}
+  - {fileID: 3977872801247785595, guid: 09822bb1cd349a94bbd1d2d2ad909998, type: 3}
+  - {fileID: 7512846031066477962, guid: ebf650e584ff3ec48b5b3c7e251ca9e9, type: 3}
 --- !u!1001 &2916895785891560557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,6 +740,10 @@ PrefabInstance:
     - target: {fileID: 2916895785917208375, guid: 4794f93e841a15647a5695837a1a57c3, type: 3}
       propertyPath: m_Name
       value: Floor1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916895785917208375, guid: 4794f93e841a15647a5695837a1a57c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4794f93e841a15647a5695837a1a57c3, type: 3}
