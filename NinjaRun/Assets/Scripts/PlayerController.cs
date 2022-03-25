@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float laneGap = 3f;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float laneSwitchSmooth = 5f;
+    [SerializeField] Transform cam;
 
     [Header("Jumping")]
     [SerializeField] float JumpForce = 2f;
@@ -19,8 +20,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode Right = KeyCode.D;
     [SerializeField] KeyCode SlideKey = KeyCode.LeftShift;
 
-    private float currentLane = 0;
+    [Header("Animations")]
+    [SerializeField] Animator anim;
 
+    private float currentLane = 0f;
+
+    [HideInInspector]
+    public float camCurrentLane = 0f;
+
+    // Components
     private Rigidbody rb;
 
     // Input
@@ -40,6 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         MyInput();
         LaneSwitch();
+        Animation();
     }
 
     private void FixedUpdate()
@@ -62,15 +71,20 @@ public class PlayerController : MonoBehaviour
         if (moveLeft)
         {
             currentLane -= laneGap;
+            camCurrentLane -= (laneGap - 0.5f);
         }
         else if (moveRight)
         {
             currentLane += laneGap;
+            camCurrentLane += (laneGap - 0.5f);
         }
         currentLane = Mathf.Clamp(currentLane, -laneGap, laneGap);
 
+        Vector3 camDirection = new Vector3(currentLane, cam.position.y, cam.position.z);
         Vector3 direction = new Vector3(currentLane, rb.position.y, rb.position.z);
-        transform.position = Vector3.Lerp(transform.position, direction, laneSwitchSmooth * Time.deltaTime);
+
+        // cam.position = Vector3.Lerp(cam.position, camDirection, (laneSwitchSmooth) * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, direction, (laneSwitchSmooth) * Time.deltaTime);
     }
 
     void Jump()
@@ -85,7 +99,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+        // rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+        rb.AddForce(Vector3.forward * moveSpeed, ForceMode.Force);
     }
 
     void Slide()
@@ -93,7 +108,13 @@ public class PlayerController : MonoBehaviour
         if (isSliding && !isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(Vector3.down * JumpForce * 2, ForceMode.Impulse);
+            rb.AddForce(Vector3.down * JumpForce * 2.5f, ForceMode.Impulse);
         }
+    }
+
+    void Animation()
+    {
+        anim.SetFloat("Velocity", Mathf.Clamp(rb.velocity.z, 0f, 10f));
+        anim.SetBool("isGrounded", isGrounded);
     }
 }
