@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
             camCurrentLane += (laneGap - 0.5f);
         }
         currentLane = Mathf.Clamp(currentLane, -laneGap, laneGap);
+        camCurrentLane = Mathf.Clamp(camCurrentLane, -(laneGap - 0.5f), (laneGap - 0.5f));
 
         Vector3 camDirection = new Vector3(currentLane, cam.position.y, cam.position.z);
         Vector3 direction = new Vector3(currentLane, rb.position.y, rb.position.z);
@@ -114,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
     void Animation()
     {
-        anim.SetFloat("Velocity", Mathf.Clamp(rb.velocity.z, 0f, 10f));
+        anim.SetFloat("Velocity", Mathf.Clamp(rb.velocity.z, 0f, 50f));
         anim.SetBool("isGrounded", isGrounded);
     }
 }
