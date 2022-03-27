@@ -5,6 +5,6 @@ public class DestroyFloor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject parentFloor = gameObject.transform.parent.gameObject;
-        Destroy(parentFloor, 0.7f);
+        Destroy(parentFloor, 1.5f);
     }
 }

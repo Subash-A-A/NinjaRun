@@ -48,7 +48,8 @@ public class PlayerController : MonoBehaviour
     {
         MyInput();
         LaneSwitch();
-        Animation();
+        MovementAnimations();
+        DashAnimations();
     }
 
     private void FixedUpdate()
@@ -113,9 +114,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Animation()
+    void MovementAnimations()
     {
         anim.SetFloat("Velocity", Mathf.Clamp(rb.velocity.z, 0f, 50f));
         anim.SetBool("isGrounded", isGrounded);
+    }
+
+    void DashAnimations()
+    {
+        if (moveLeft && isGrounded)
+        {
+            anim.SetTrigger("DashLeft");
+        }
+        if (moveRight && isGrounded)
+        {
+            anim.SetTrigger("DashRight");
+        }
     }
 }
