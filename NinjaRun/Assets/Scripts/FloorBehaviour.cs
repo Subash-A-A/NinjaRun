@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NextFloor : MonoBehaviour
+public class FloorBehaviour : MonoBehaviour
 {
     [SerializeField] Transform FloorEnd;
 
@@ -17,5 +17,10 @@ public class NextFloor : MonoBehaviour
         {
             Instantiate(fm.randomFloor(), FloorEnd.position, Quaternion.identity);
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject parentFloor = gameObject.transform.parent.gameObject;
+        Destroy(parentFloor);
     }
 }

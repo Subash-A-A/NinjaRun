@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float JumpForce = 2f;
     [SerializeField] Transform GroundCheck;
     [SerializeField] LayerMask whatIsGround;
-    private float checkRadius = 0.1f;
+    private float checkRadius = 0.15f;
 
     [Header("Controls")]
     [SerializeField] KeyCode JumpKey = KeyCode.Space;
