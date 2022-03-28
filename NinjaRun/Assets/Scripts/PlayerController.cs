@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isSliding;
 
+    private float jumpDir = 0.5f;
+
     private void Awake()
     {
         currentLane = 0;
@@ -116,8 +118,22 @@ public class PlayerController : MonoBehaviour
 
     void MovementAnimations()
     {
+        if (isGrounded)
+        {
+            jumpDir = 0.5f;
+        }
+        if (!isGrounded && moveLeft)
+        {
+            jumpDir = Mathf.Lerp(jumpDir, 0f, 35 * Time.deltaTime);
+        }
+        if (!isGrounded && moveRight)
+        {
+            jumpDir = Mathf.Lerp(jumpDir, 1f, 35 * Time.deltaTime);
+        }
+
         anim.SetFloat("Velocity", Mathf.Clamp(rb.velocity.z, 0f, 50f));
         anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("Random", jumpDir);
     }
 
     void DashAnimations()

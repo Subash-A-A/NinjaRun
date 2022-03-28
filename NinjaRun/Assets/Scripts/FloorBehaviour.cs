@@ -20,7 +20,10 @@ public class FloorBehaviour : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        GameObject parentFloor = gameObject.transform.parent.gameObject;
-        Destroy(parentFloor, 0.2f);
+        if (other.transform.tag == "Player")
+        {
+            GameObject parentFloor = gameObject.transform.parent.gameObject;
+            Destroy(parentFloor, 0.2f);
+        }
     }
 }

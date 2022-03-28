@@ -176,7 +176,7 @@ MonoBehaviour:
   moveSpeed: 1
   laneSwitchSmooth: 10
   cam: {fileID: 1131758984}
-  JumpForce: 5
+  JumpForce: 6
   GroundCheck: {fileID: 1187049789}
   whatIsGround:
     serializedVersion: 2
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b23e11f22c157542abda13d4967357f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 7701009349112918063}
 --- !u!65 &287478413
 BoxCollider:
   m_ObjectHideFlags: 0
