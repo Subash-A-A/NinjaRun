@@ -21,6 +21,6 @@ public class FloorBehaviour : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         GameObject parentFloor = gameObject.transform.parent.gameObject;
-        Destroy(parentFloor);
+        Destroy(parentFloor, 0.2f);
     }
 }
