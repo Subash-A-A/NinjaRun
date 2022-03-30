@@ -532,7 +532,7 @@ MonoBehaviour:
   GlobalVolume: {fileID: 1206426774}
   player: {fileID: 287478411}
   mesh: {fileID: 361962737187619564}
-  speedCap: 50
+  speedCap: 30
 --- !u!4 &1081930056
 Transform:
   m_ObjectHideFlags: 0

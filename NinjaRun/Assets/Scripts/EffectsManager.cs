@@ -24,6 +24,7 @@ public class EffectsManager : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(glowPower);
         SpeedEffects();
         GetherData();
         ShaderGlow();
@@ -37,7 +38,7 @@ public class EffectsManager : MonoBehaviour
     void GetherData()
     {
         velRatio = player.velocity.z / speedCap;
-        glowPower = player.velocity.z * 0.125f;
+        glowPower = player.velocity.z * 0.1f;
 
         velRatio = Mathf.Clamp(velRatio, 0f, 1f);
         glowPower = Mathf.Clamp(glowPower, 0f, 10f);
