@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [Header("Animations")]
     [SerializeField] Animator anim;
 
+
+
     private float currentLane = 0f;
 
     [HideInInspector]
@@ -147,4 +149,5 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("DashRight");
         }
     }
+
 }
