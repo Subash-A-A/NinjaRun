@@ -24,7 +24,6 @@ public class EffectsManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(glowPower);
         SpeedEffects();
         GetherData();
         ShaderGlow();
