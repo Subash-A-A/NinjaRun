@@ -6,8 +6,11 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] Text scoreText;
     [SerializeField] Text highScoreText;
+    [SerializeField] Animator anim;
 
     int highScore = 0;
+    private bool playAnim = false;
+
 
     private void Start()
     {
@@ -28,6 +31,12 @@ public class ScoreManager : MonoBehaviour
     void updateHighScore()
     {
         int score = int.Parse(scoreText.text);
+
+        if (highScore == score && !playAnim)
+        {
+            anim.SetTrigger("PowerUp");
+            playAnim = true;
+        }
 
         if (highScore < score)
         {
