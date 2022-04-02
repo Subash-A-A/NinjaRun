@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] Text highScoreText;
     [SerializeField] Animator anim;
+    [SerializeField] ParticleSystem explosion;
 
     int highScore = 0;
     private bool playAnim = false;
@@ -32,9 +33,10 @@ public class ScoreManager : MonoBehaviour
     {
         int score = int.Parse(scoreText.text);
 
-        if (highScore == score && !playAnim)
+        if (highScore == score && !playAnim && highScore > 0f)
         {
             anim.SetTrigger("PowerUp");
+            explosion.Play();
             playAnim = true;
         }
 

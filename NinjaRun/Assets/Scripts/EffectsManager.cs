@@ -8,14 +8,19 @@ public class EffectsManager : MonoBehaviour
     [SerializeField] GameObject GlobalVolume;
     [SerializeField] Rigidbody player;
     [SerializeField] GameObject mesh;
+    [SerializeField] ParticleSystem arc;
+    [SerializeField] float arcStart = 0.8f;
 
     [Header("Settings")]
     [SerializeField] float speedCap = 50f;
 
     private Material material;
     private Volume volume;
-    private float velRatio = 0f;
+
+    [HideInInspector]
+    public float velRatio = 0f;
     private float glowPower = 0f;
+    private bool startedPlaying = false;
 
     private void Awake()
     {
@@ -27,6 +32,16 @@ public class EffectsManager : MonoBehaviour
         SpeedEffects();
         GetherData();
         ShaderGlow();
+
+        if (velRatio >= arcStart && !startedPlaying)
+        {
+            arc.Play();
+            startedPlaying = true;
+        }
+        else if (velRatio < arcStart)
+        {
+            arc.Stop();
+        }
     }
 
     void ShaderGlow()
