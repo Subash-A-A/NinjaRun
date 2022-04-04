@@ -8,6 +8,7 @@ public class ObstacleCollision : MonoBehaviour
     private Rigidbody rb;
     private PlayerController pc;
     private EffectsManager ec;
+
     private bool endGame = false;
     private bool startedPlaying = false;
 
@@ -37,11 +38,13 @@ public class ObstacleCollision : MonoBehaviour
         {
             pc.enabled = false;
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, 25 * Time.deltaTime);
-            if (!startedPlaying && ec.velRatio >= 0.5f)
+
+            if (!startedPlaying && ec.velRatio >= ec.arcStart - 0.3f)
             {
                 explosion.Play();
                 startedPlaying = true;
             }
+
             Invoke("DisableRagDoll", 0.1f);
         }
     }

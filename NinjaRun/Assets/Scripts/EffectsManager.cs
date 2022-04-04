@@ -9,10 +9,10 @@ public class EffectsManager : MonoBehaviour
     [SerializeField] Rigidbody player;
     [SerializeField] GameObject mesh;
     [SerializeField] ParticleSystem arc;
-    [SerializeField] float arcStart = 0.8f;
 
     [Header("Settings")]
     [SerializeField] float speedCap = 50f;
+    public float arcStart = 0.8f;
 
     private Material material;
     private Volume volume;
