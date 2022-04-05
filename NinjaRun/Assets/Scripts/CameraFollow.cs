@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
         pc = gameObject.transform.parent.GetComponent<PlayerController>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         currentLane = Mathf.Lerp(currentLane, pc.camCurrentLane, camSmoothFactor * Time.deltaTime);
         cam.transform.position = new Vector3(currentLane, transform.position.y, transform.position.z);
