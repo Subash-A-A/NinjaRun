@@ -70,4 +70,12 @@ public class EffectsManager : MonoBehaviour
         }
     }
 
+    public void HueShift()
+    {
+        if (volume.profile.TryGet<ColorAdjustments>(out var color))
+        {
+            color.saturation.value = Mathf.Lerp(color.saturation.value, -100f, 2 * Time.deltaTime);
+        }
+    }
+
 }

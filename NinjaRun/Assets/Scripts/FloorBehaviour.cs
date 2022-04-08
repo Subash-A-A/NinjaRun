@@ -3,6 +3,7 @@ using UnityEngine;
 public class FloorBehaviour : MonoBehaviour
 {
     [SerializeField] Transform FloorEnd;
+    [SerializeField] GameObject floor;
 
     private FloorManager fm;
 
@@ -18,6 +19,7 @@ public class FloorBehaviour : MonoBehaviour
             Instantiate(fm.randomFloor(), FloorEnd.position, Quaternion.identity);
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player")

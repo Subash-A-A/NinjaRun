@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
         MyInput();
         LaneSwitch();
         MovementAnimations();
-        DashAnimations();
     }
 
     private void FixedUpdate()
@@ -73,16 +72,22 @@ public class PlayerController : MonoBehaviour
 
     void LaneSwitch()
     {
-        if (moveLeft)
+        if (!PauseMenu.GameIsPaused)
         {
-            currentLane -= laneGap;
-            camCurrentLane -= (laneGap - 0.5f);
+            if (moveLeft)
+            {
+                currentLane -= laneGap;
+                camCurrentLane -= (laneGap - 0.5f);
+            }
+            else if (moveRight)
+            {
+                currentLane += laneGap;
+                camCurrentLane += (laneGap - 0.5f);
+            }
+
+            DashAnimations();
         }
-        else if (moveRight)
-        {
-            currentLane += laneGap;
-            camCurrentLane += (laneGap - 0.5f);
-        }
+
         currentLane = Mathf.Clamp(currentLane, -laneGap, laneGap);
         camCurrentLane = Mathf.Clamp(camCurrentLane, -(laneGap - 0.5f), (laneGap - 0.5f));
 
@@ -96,7 +101,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         isGrounded = Physics.CheckSphere(GroundCheck.position, checkRadius, whatIsGround);
-        if (isGrounded && isJumping && !isSliding)
+        if (isGrounded && isJumping && !isSliding && !PauseMenu.GameIsPaused)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);

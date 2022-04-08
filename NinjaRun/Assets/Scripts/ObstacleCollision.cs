@@ -44,7 +44,7 @@ public class ObstacleCollision : MonoBehaviour
                 explosion.Play();
                 startedPlaying = true;
             }
-
+            ec.HueShift();
             Invoke("DisableRagDoll", 0.1f);
         }
     }
