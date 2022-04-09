@@ -55,7 +55,7 @@ public class EffectsManager : MonoBehaviour
         glowPower = player.velocity.z * 0.1f;
 
         velRatio = Mathf.Clamp(velRatio, 0f, 1f);
-        glowPower = Mathf.Clamp(glowPower, 0f, 10f);
+        glowPower = Mathf.Clamp(glowPower, 0f, 20f);
     }
 
     void SpeedEffects()
