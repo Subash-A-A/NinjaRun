@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [Header("Animations")]
     [SerializeField] Animator anim;
 
+    [Header("Settings")]
+    [SerializeField] float slideCoolDown = 0.1f;
+
 
 
     private float currentLane = 0f;
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
     private bool isSliding;
+    private bool canSlide = true;
 
     private float jumpDir = 0.5f;
 
@@ -116,10 +121,16 @@ public class PlayerController : MonoBehaviour
 
     void Slide()
     {
-        if (isSliding && !isGrounded)
+        if (isSliding && !isGrounded && canSlide)
         {
+            anim.SetBool("isPlunging", true);
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(Vector3.down * JumpForce * 2.5f, ForceMode.Impulse);
+            StartCoroutine(KeyWait());
+        }
+        else
+        {
+            anim.SetBool("isPlunging", false);
         }
     }
 
@@ -153,6 +164,13 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("DashRight");
         }
+    }
+
+    IEnumerator KeyWait()
+    {
+        canSlide = false;
+        yield return new WaitForSeconds(slideCoolDown);
+        canSlide = true;
     }
 
 }

@@ -9,11 +9,12 @@ public class ObstacleCollision : MonoBehaviour
     private PlayerController pc;
     private EffectsManager ec;
 
-    private bool endGame = false;
+    public static bool endGame = false;
     private bool startedPlaying = false;
 
     private void Awake()
     {
+        endGame = false;
         rb = GetComponent<Rigidbody>();
         pc = GetComponent<PlayerController>();
         ec = FindObjectOfType<EffectsManager>();

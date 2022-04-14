@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2830241660130366668}
   - component: {fileID: 1117053085743821093}
   - component: {fileID: 7788403668442852837}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -253,6 +253,7 @@ Transform:
   - {fileID: 5981497284634021126}
   - {fileID: 5981497283384794521}
   - {fileID: 5981497283884391658}
+  - {fileID: 764775766337502685}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -268,7 +269,7 @@ GameObject:
   - component: {fileID: 5981497283778003102}
   - component: {fileID: 5981497283778003103}
   - component: {fileID: 5981497283778003100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -360,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5981497283884391658}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +399,7 @@ GameObject:
   - component: {fileID: 5981497284257926976}
   - component: {fileID: 5981497284257926977}
   - component: {fileID: 5981497284257927006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -647,7 +648,7 @@ GameObject:
   - component: {fileID: 5981497285429490474}
   - component: {fileID: 5981497285429490475}
   - component: {fileID: 5981497285429490472}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -742,7 +743,7 @@ GameObject:
   - component: {fileID: 1538900960758953852}
   - component: {fileID: 4188067843127282014}
   - component: {fileID: 6588938806063083626}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -825,3 +826,65 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &2989597247650168469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5981497283544024399}
+    m_Modifications:
+    - target: {fileID: 2585111654831473332, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_Name
+      value: Sphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+--- !u!4 &764775766337502685 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2585111654831473480, guid: 2f48355207b9fbe4381ec6cca7f1573e, type: 3}
+  m_PrefabInstance: {fileID: 2989597247650168469}
+  m_PrefabAsset: {fileID: 0}
