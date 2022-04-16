@@ -5,7 +5,15 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     [SerializeField] GameObject PauseMenuUI;
+    [SerializeField] GameObject RestartMenuUI;
     [SerializeField] string SceneName = "Scene";
+
+    private void Awake()
+    {
+        GameIsPaused = false;
+        PauseMenuUI.SetActive(false);
+        RestartMenuUI.SetActive(false);
+    }
 
     private void Update()
     {
@@ -20,6 +28,11 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+
+        if (ObstacleCollision.endGame)
+        {
+            Invoke("RestartMenu", 1f);
+        }
     }
 
     public void Resume()
@@ -31,9 +44,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        PauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
+        if (!ObstacleCollision.endGame)
+        {
+            PauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
     }
 
     public void RestartGame()
@@ -50,5 +66,10 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    void RestartMenu()
+    {
+        RestartMenuUI.SetActive(true);
     }
 }

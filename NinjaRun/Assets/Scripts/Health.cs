@@ -55,7 +55,6 @@ public class Health : MonoBehaviour
 
     void pickDropRate(float velocity)
     {
-        Debug.Log(dropMultiplier);
         if (velocity > 20 && velocity <= 40)
         {
             dropMultiplier = healthDropRates[1];
