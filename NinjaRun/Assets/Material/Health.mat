@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SideWalls
+  m_Name: Health
   m_Shader: {fileID: -6465566751694194690, guid: aa1eec12708457543a4e615ef22bd045, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,10 +32,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_37dfef91e87c4896b715c0999fca9d01: 0.9
-    - Vector1_3b58abff07e64467af57bb703f1af7df: 0.55
-    - Vector1_c413437bcf8d43e6b9568f35e4eb18bd: 0.9
+    - Vector1_37dfef91e87c4896b715c0999fca9d01: 0.6
+    - Vector1_3b58abff07e64467af57bb703f1af7df: 0
+    - Vector1_c413437bcf8d43e6b9568f35e4eb18bd: 0.8
     m_Colors:
-    - Color_5d9fd3e0bbc1477bb0f26af2cf9a2cb8: {r: 0, g: 0.15682419, b: 0.3773585, a: 1}
+    - Color_5d9fd3e0bbc1477bb0f26af2cf9a2cb8: {r: 0, g: 2.8679247, b: 0, a: 1}
     - Vector2_39b3f93f01d143f280a79c4cb1cf12b2: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
