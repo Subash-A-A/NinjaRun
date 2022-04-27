@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float laneSwitchSmooth = 5f;
     [SerializeField] Transform cam;
+    [SerializeField] ParticleSystem DashParticles;
 
     [Header("Jumping")]
     [SerializeField] float JumpForce = 2f;
